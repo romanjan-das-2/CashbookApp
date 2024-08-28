@@ -205,6 +205,9 @@ const dataArray = [
     [45503,-104442],
     [45504,-16700]
 ];
+const initialBalance = 10653292.34;
+var grandTotal = initialBalance;
+var closingBalance = grandTotal;
 
 function startProgram(){
     findUniqueDates();
@@ -264,20 +267,30 @@ function formatDataToCashbook(){
     var tempArray = new Array();
     var tempArrayCredit = new Array();
     var tempArrayDebit = new Array();
+    var totalCredit=0;
+    var totalDebit=0;
     for(i=0;i<valuesByDates.length;i++){
         tempArray.push(valuesByDates[i][0]);
         for(j=1;j<valuesByDates[i].length;j++){
             if(valuesByDates[i][j]>=0){
                 tempArrayCredit.push(valuesByDates[i][j]);
+                totalCredit=totalCredit+valuesByDates[i][j];
             }
             else{
                 tempArrayDebit.push(valuesByDates[i][j]);
+                totalDebit=totalDebit+valuesByDates[i][j];
             }
         }
+        grandTotal=closingBalance+totalCredit;
+        closingBalance=grandTotal+totalDebit;
         tempArray.push(tempArrayCredit);
         tempArray.push(tempArrayDebit);
+        tempArray.push(totalCredit);
+        tempArray.push(totalDebit);
+        tempArray.push(grandTotal);
+        tempArray.push(closingBalance);
         cashbookArray.push(tempArray);
-        tempArray=[]; tempArrayCredit=[]; tempArrayDebit=[];
+        tempArray=[]; tempArrayCredit=[]; tempArrayDebit=[]; totalCredit=0; totalDebit=0;
     }
     console.log(cashbookArray);
 }
