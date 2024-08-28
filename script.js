@@ -209,6 +209,7 @@ const dataArray = [
 function startProgram(){
     findUniqueDates();
     arrangeValuesByDates();
+    formatDataToCashbook();
 }
 
 var uniqueDates = new Array();
@@ -255,4 +256,28 @@ function arrangeValuesByDates(){
         tempArray=[];
     }
     console.log(valuesByDates);
+}
+
+var cashbookArray = new Array();
+
+function formatDataToCashbook(){
+    var tempArray = new Array();
+    var tempArrayCredit = new Array();
+    var tempArrayDebit = new Array();
+    for(i=0;i<valuesByDates.length;i++){
+        tempArray.push(valuesByDates[i][0]);
+        for(j=1;j<valuesByDates[i].length;j++){
+            if(valuesByDates[i][j]>=0){
+                tempArrayCredit.push(valuesByDates[i][j]);
+            }
+            else{
+                tempArrayDebit.push(valuesByDates[i][j]);
+            }
+        }
+        tempArray.push(tempArrayCredit);
+        tempArray.push(tempArrayDebit);
+        cashbookArray.push(tempArray);
+        tempArray=[]; tempArrayCredit=[]; tempArrayDebit=[];
+    }
+    console.log(cashbookArray);
 }
