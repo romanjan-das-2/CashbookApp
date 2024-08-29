@@ -1,13 +1,29 @@
 table{
-    margin-top: 2px;
+    margin-top: 5px;
 }
 table,th,td {
     border: 1px solid black;
     border-collapse: collapse;
 }
+th,td{
+    vertical-align: top;
+    text-align: left;
+}
 tr{
     height: 20px;
 }
 .tallRow{
-    height: 100px;
+    height: 150px;
+}
+.closingBalance{
+    color: red;
+}
+.firstColumn,.fourthColumn{
+    width: 100px;
+}
+.secondColumn,.fifthColumn{
+    width: 350px;
+}
+.thirdColumn,.sixthColumn{
+    width: 150px;
 }
