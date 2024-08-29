@@ -210,10 +210,48 @@ var grandTotal = initialBalance;
 var closingBalance = grandTotal;
 
 function startProgram(){
+    generateDateValues();
     findUniqueDates();
     arrangeValuesByDates();
     formatDataToCashbook();
     createTable();
+}
+
+var dateAndDateValue=[];
+
+// use dateAndDateValue[number-2] to get date for the specific number
+// generates upto 21-11-2036
+function generateDateValues(){
+    const nonLeapYearMonths=[31,28,31,30,31,30,31,31,30,31,30,31];
+    const LeapYearMonths=[31,29,31,30,31,30,31,31,30,31,30,31];
+    var tempDay=0,tempMonth=1,tempYear=1900;
+    var daysInMonth=0;
+    var dateFormat="";
+    for(i=1;i<50000;i++){
+        if(tempYear%4==0 && tempYear%100!=0 || tempYear%400==0){
+            console.log("LeapYear:"+tempYear);
+            daysInMonth=LeapYearMonths[tempMonth-1];
+        }
+        else{
+            daysInMonth=nonLeapYearMonths[tempMonth-1];
+        }
+        if(tempDay<daysInMonth){
+            tempDay=tempDay+1;
+        }
+        else{
+            tempDay=1;
+            if(tempMonth<12){
+                tempMonth=tempMonth+1;
+            }
+            else{
+                tempMonth=1;
+                tempYear=tempYear+1;
+            }
+        }
+        //dateAndDateValue.push([i,tempDay,tempMonth,tempYear]);
+        dateFormat=tempDay+"-"+tempMonth+"-"+tempYear;
+        dateAndDateValue.push(dateFormat);
+    }
 }
 
 var uniqueDates = new Array();
@@ -309,8 +347,8 @@ function createTable(){
 
 function insertDataToTable(){
     for(i=0;i<cashbookArray.length;i++){
-        document.getElementsByClassName("dateOfReceipt")[i].innerHTML=cashbookArray[i][0];
-        document.getElementsByClassName("dateOfExpenditure")[i].innerHTML=cashbookArray[i][0];
+        document.getElementsByClassName("dateOfReceipt")[i].innerHTML=dateAndDateValue[cashbookArray[i][0]-2];
+        document.getElementsByClassName("dateOfExpenditure")[i].innerHTML=dateAndDateValue[cashbookArray[i][0]-2];
         for(j=0;j<cashbookArray[i][1].length;j++){
             document.getElementsByClassName("amountReceipt")[i].innerHTML=document.getElementsByClassName("amountReceipt")[i].innerHTML+cashbookArray[i][1][j]+"<br>";
         }
