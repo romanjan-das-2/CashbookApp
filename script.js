@@ -311,10 +311,10 @@ function insertDataToTable(){
         document.getElementsByClassName("dateOfReceipt")[i].innerHTML=cashbookArray[i][0];
         document.getElementsByClassName("dateOfExpenditure")[i].innerHTML=cashbookArray[i][0];
         for(j=0;j<cashbookArray[i][1].length;j++){
-            document.getElementsByClassName("amountReceipt")[i].innerHTML=document.getElementsByClassName("amountReceipt")[i].innerHTML+"<br>"+cashbookArray[i][1][j];
+            document.getElementsByClassName("amountReceipt")[i].innerHTML=document.getElementsByClassName("amountReceipt")[i].innerHTML+cashbookArray[i][1][j]+"<br>";
         }
         for(k=0;k<cashbookArray[i][2].length;k++){
-            document.getElementsByClassName("amountExpenditure")[i].innerHTML=document.getElementsByClassName("amountExpenditure")[i].innerHTML+"<br>"+cashbookArray[i][2][k];
+            document.getElementsByClassName("amountExpenditure")[i].innerHTML=document.getElementsByClassName("amountExpenditure")[i].innerHTML+cashbookArray[i][2][k]+"<br>";
         }
         document.getElementsByClassName("totalReceived")[i].innerHTML=cashbookArray[i][3];
         document.getElementsByClassName("totalExpenditure")[i].innerHTML=cashbookArray[i][4];

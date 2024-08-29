@@ -8,6 +8,8 @@ table,th,td {
 th,td{
     vertical-align: top;
     text-align: left;
+    padding:5px;
+    padding-left: 10px;
 }
 tr{
     height: 20px;
