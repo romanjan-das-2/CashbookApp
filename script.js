@@ -342,6 +342,7 @@ function createTable(){
         clone_table=table_structure.cloneNode(true);
         document.body.appendChild(clone_table);
     }
+    table_structure.remove();
     insertDataToTable();
 }
 

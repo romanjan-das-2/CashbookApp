@@ -15,7 +15,7 @@ tr{
     height: 20px;
 }
 .tallRow{
-    height: 150px;
+    height: 200px;
 }
 .closingBalance{
     color: red;
@@ -28,4 +28,9 @@ tr{
 }
 .thirdColumn,.sixthColumn{
     width: 150px;
+}
+@media print{
+    table{
+        page-break-inside: avoid;
+    }
 }
