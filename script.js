@@ -310,5 +310,16 @@ function insertDataToTable(){
     for(i=0;i<cashbookArray.length;i++){
         document.getElementsByClassName("dateOfReceipt")[i].innerHTML=cashbookArray[i][0];
         document.getElementsByClassName("dateOfExpenditure")[i].innerHTML=cashbookArray[i][0];
+        for(j=0;j<cashbookArray[i][1].length;j++){
+            document.getElementsByClassName("amountReceipt")[i].innerHTML=document.getElementsByClassName("amountReceipt")[i].innerHTML+"<br>"+cashbookArray[i][1][j];
+        }
+        for(k=0;k<cashbookArray[i][2].length;k++){
+            document.getElementsByClassName("amountExpenditure")[i].innerHTML=document.getElementsByClassName("amountExpenditure")[i].innerHTML+"<br>"+cashbookArray[i][2][k];
+        }
+        document.getElementsByClassName("totalReceived")[i].innerHTML=cashbookArray[i][3];
+        document.getElementsByClassName("totalExpenditure")[i].innerHTML=cashbookArray[i][4];
+        document.getElementsByClassName("grandTotalA")[i].innerHTML=cashbookArray[i][5];
+        document.getElementsByClassName("grandTotalB")[i].innerHTML=cashbookArray[i][5];
+        document.getElementsByClassName("closingBalance")[i].innerHTML=cashbookArray[i][6];
     }
 }
