@@ -284,6 +284,7 @@ function formatDataToCashbook(){
         }
         grandTotal=closingBalance+totalCredit;
         closingBalance=grandTotal+totalDebit;
+        closingBalance=parseFloat(closingBalance.toFixed(2));
         tempArray.push(tempArrayCredit);
         tempArray.push(tempArrayDebit);
         tempArray.push(totalCredit);
