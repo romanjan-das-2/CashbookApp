@@ -1,0 +1,13 @@
+table{
+    margin-top: 2px;
+}
+table,th,td {
+    border: 1px solid black;
+    border-collapse: collapse;
+}
+tr{
+    height: 20px;
+}
+.tallRow{
+    height: 100px;
+}

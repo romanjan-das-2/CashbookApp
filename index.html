@@ -1,12 +1,59 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <script src="script.js"></script>
+    <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
     <button onclick="startProgram();" type="button">Start</button>
+    <table id="table_structure">
+        <tr>
+            <th>Date of Receipt</th>
+            <th>Particulars of Receipt</th>
+            <th>Amount Rs.</th>
+            <th>Date of Expenditure</th>
+            <th>Particulars of Expenditure</th>
+            <th>Amount Rs.</th>
+        </tr>
+        <tr class="tallRow">
+            <td class="dateOfReceipt"></td>
+            <td></td>
+            <td class="amountReceipt"></td>
+            <td class="dateOfExpenditure"></td>
+            <td></td>
+            <td class="amountExpenditure"></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td>Total Received</td>
+            <td class="totalReceived"></td>
+            <td></td>
+            <td>Total Expenditure</td>
+            <td class="totalExpenditure"></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td>Closing Balance</td>
+            <td class="closingBalance"></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td>Grand Total</td>
+            <td class="grandTotalA"></td>
+            <td></td>
+            <td>Grand Total</td>
+            <td class="grandTotalB"></td>
+        </tr>
+    </table>
+
 </body>
+
 </html>

@@ -213,6 +213,7 @@ function startProgram(){
     findUniqueDates();
     arrangeValuesByDates();
     formatDataToCashbook();
+    createTable();
 }
 
 var uniqueDates = new Array();
@@ -293,4 +294,21 @@ function formatDataToCashbook(){
         tempArray=[]; tempArrayCredit=[]; tempArrayDebit=[]; totalCredit=0; totalDebit=0;
     }
     console.log(cashbookArray);
+}
+
+function createTable(){
+    const table_structure=document.getElementById("table_structure");
+    var clone_table;
+    for(i=0;i<cashbookArray.length;i++){
+        clone_table=table_structure.cloneNode(true);
+        document.body.appendChild(clone_table);
+    }
+    insertDataToTable();
+}
+
+function insertDataToTable(){
+    for(i=0;i<cashbookArray.length;i++){
+        document.getElementsByClassName("dateOfReceipt")[i].innerHTML=cashbookArray[i][0];
+        document.getElementsByClassName("dateOfExpenditure")[i].innerHTML=cashbookArray[i][0];
+    }
 }
